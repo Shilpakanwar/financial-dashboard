@@ -50,7 +50,7 @@ const Navbar: React.FC<NavbarProps> = () => {
         {user ? (
           <>
             <span className="text-white text-base mr-4 font-medium">
-              Hello, {user?.name || user?.email}
+              Hello, {user?.name}
             </span>
             <button
               onClick={handleLogout}
