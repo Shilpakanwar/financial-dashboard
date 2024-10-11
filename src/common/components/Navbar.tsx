@@ -11,13 +11,8 @@ import { useDispatch, useSelector } from 'react-redux';
 interface NavbarProps {}
 
 const Navbar: React.FC<NavbarProps> = () => {
-  //   const { user } = useSelector((state: RootState) => state.auth);
+  const { user } = useSelector((state: RootState) => state.auth);
   const dispatch = useDispatch();
-  const user = {
-    name: 'rohan',
-    emai: 'rohan@gmail.com',
-  };
-  const username = 'Rohan';
   const router = useRouter();
   const supabase = createClient();
   const handleLogout = async () => {
