@@ -1,20 +1,18 @@
 'use client';
-
 import { removeUser } from '@/lib/features/authSlice';
-import { RootState } from '@/lib/store';
+import { RootState, useAppDispatch, useAppSelector } from '@/lib/store';
 import { createClient } from '@/utils/supabase/client';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
 interface NavbarProps {}
 
 const Navbar: React.FC<NavbarProps> = () => {
-  const { user } = useSelector((state: RootState) => state.auth);
-  const dispatch = useDispatch();
-  const router = useRouter();
+  const { user } = useAppSelector((state: RootState) => state.auth);
   const supabase = createClient();
+  const dispatch = useAppDispatch();
+  const router = useRouter();
   const handleLogout = async () => {
     try {
       const { error } = await supabase.auth.signOut();
